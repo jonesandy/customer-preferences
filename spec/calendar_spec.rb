@@ -21,7 +21,6 @@ describe Calendar do
 
   describe '#generate_calendar' do
     
-
     before do
       Timecop.freeze(2020, 02, 01)
     end
