@@ -31,7 +31,8 @@ class Calendar
     { 
       date: day.strftime('%Y'),
       mday: day.mday,
-      day: day.strftime('%^a')
+      day: day.strftime('%^a'),
+      customer: []
     }
   end
 
