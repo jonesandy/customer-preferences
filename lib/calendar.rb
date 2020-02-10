@@ -13,7 +13,14 @@ class Calendar
   end
 
   def generate_calendar
-    @calendar = [{}, {}]
+    count = 0
+
+    while count < DAYS do
+      @calendar.push(count)
+      count += 1
+    end
+
+    return @calendar
   end
 
 end
