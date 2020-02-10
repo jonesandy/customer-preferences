@@ -20,12 +20,18 @@ describe Calendar do
   end
 
   describe '#generate_calendar' do
+    
+
     before do
-      Timecop.freeze(Date.today)
+      Timecop.freeze(2020, 02, 01)
     end
 
     after do
       Timecop.return
+    end
+
+    it 'should generate an array' do
+      expect(calendar.generate_calendar).to be_an_instance_of(Array)
     end
 
   end
