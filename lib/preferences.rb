@@ -21,7 +21,6 @@ class Preferences
   
   def assign_customers
     @customers.each do |customer|
-      next if customer[:none] == true
 
       if customer[:everyday] == true
         add_everyday(customer)
