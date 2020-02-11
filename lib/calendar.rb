@@ -30,6 +30,7 @@ class Calendar
   def create_hash(day)
     { 
       date: day.strftime('%Y'),
+      month: day.strftime('%B'),
       mday: day.mday,
       day: day.strftime('%^a'),
       customer: []

@@ -1,15 +1,25 @@
 require_relative './calendar.rb'
+require_relative './display.rb'
 
 class Preferences
 
   attr_reader :customers, :calendar
 
-  def initialize(customers, calendar = Calendar.new)
+  def initialize(customers, calendar = Calendar.new, display = Display.new)
     @customers = customers
     @calendar = calendar.generate_calendar
+    @display = display
   end
 
-  def create_prefs
+  def create_preferences
+    assign_customers
+    @display.format(@calendar)
+    return nil
+  end
+
+  private
+  
+  def assign_customers
     @customers.each do |customer|
       next if customer[:none] == true
 
@@ -22,8 +32,6 @@ class Preferences
       end
     end
   end
-
-  private
 
   def add_everyday(customer)
     @calendar.each do |date|
