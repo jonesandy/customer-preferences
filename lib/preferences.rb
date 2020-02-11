@@ -15,11 +15,12 @@ class Preferences
 
       if customer[:everyday] == true
         add_everyday(customer)
+      elsif customer[:mday].nil?
+        add_specific_days(customer)
       else
-        next
+        add_specific_date(customer)
       end
     end
-
   end
 
   private
@@ -29,4 +30,21 @@ class Preferences
       date[:customer].push(customer[:id])
     end
   end
+
+  def add_specific_days(customer)
+    @calendar.each do |date|
+      if customer[:day].include?(date[:day])
+        date[:customer].push(customer[:id])
+      end
+    end
+  end
+
+  def add_specific_date(customer)
+    @calendar.each do |date|
+      if date[:mday] == customer[:mday]
+        date[:customer].push(customer[:id])
+      end
+    end
+  end
+
 end
